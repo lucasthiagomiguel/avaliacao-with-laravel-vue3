@@ -1,18 +1,18 @@
 <template>
-    
+  
     <div>
         <Conteudo/>
     </div>
-    
-  
+        
+   
   
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue';
+
+import Conteudo from '@/components/Conteudo.vue';
 export default {
     components:{
-        Menu,
         Conteudo
     }
 }

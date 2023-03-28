@@ -5,7 +5,7 @@ import store from '@/store'
 const Login = () => import('@/components/Login.vue')
 
 /* Guest Component */
-
+const NewUsuario = () => import('@/components/NewUser.vue')
 /* Layouts */
 const DahboardLayout = () => import('@/components/Login.vue')
 /* Layouts */
@@ -35,6 +35,42 @@ const routes = [
         }
     },
     {
+        name: "usuarios",
+        path: "/usuarios",
+        component: NewUsuario,
+        meta: {
+            requiresAuth:true,
+            title: `Usuarios`
+        }
+    },
+    {
+        name: " teste-desenpenho",
+        path: "/teste-desenpenho",
+        component: Login,
+        meta: {
+            requiresAuth:true,
+            title: `Teste Desenpenho`
+        }
+    },
+    {
+        name: "financeiro",
+        path: "/financeiro",
+        component: Login,
+        meta: {
+            requiresAuth:true,
+            title: `Financeiro`
+        }
+    },
+    {
+        name: "financeiro",
+        path: "/teste-realizados",
+        component: Login,
+        meta: {
+            requiresAuth:true,
+            title: `Financeiro`
+        }
+    },
+    {
         name: "dashboard",
         path: "/dashboard",
         component: Dashboard,
@@ -46,7 +82,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,  
 })
 

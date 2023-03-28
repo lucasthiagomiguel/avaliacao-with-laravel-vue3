@@ -1,1 +1,1 @@
-export const hasToken = ({ token }) => !!token;
+export const MenuState = ({ token }) => true

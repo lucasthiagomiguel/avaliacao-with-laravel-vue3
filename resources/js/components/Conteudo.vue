@@ -1,7 +1,9 @@
 <template>
   <div class=" ">
     <div class="btns d-flex  align-items-center justify-content-end p-3 ">
-      <button type="button" class="btn btn-primary">Cadastrar </button>
+      <RouterLink to="/usuarios" active-class="active" class="btn btn-primary" exact>
+        Cadastrar
+      </RouterLink>
     </div>
     <div class="p-3 border border-bottom-0 border-start-0">
       <form class="d-flex " role="search">
@@ -13,7 +15,7 @@
       <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Status Avaliacao</th>
           <th scope="col">Nome</th>
           <th scope="col">Data Admissao</th>
           <th scope="col">Empresa</th>
@@ -38,7 +40,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
+          <th scope="row"> color</th>
           <td>Teste</td>
           <td>01/02/2023</td>
           <td>TYes</td>
