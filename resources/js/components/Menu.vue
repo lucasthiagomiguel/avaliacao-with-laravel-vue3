@@ -12,17 +12,7 @@
                     </RouterLink>
                     <RouterLink to="/dashboard"  active-class="active" exact>
                         Dashboard
-                    </RouterLink>
-                    <RouterLink to="/usuarios" class="d-none" active-class="active" exact>
-                        Usuarios
-                    </RouterLink>
-                    <RouterLink to="/financeiro" class="d-none" active-class="active" exact>
-                        Financeiro
-                    </RouterLink>
-                    <RouterLink to="/teste-desenpenho" class="d-none" active-class="active" exact>
-                        Teste Desempenho
-                    </RouterLink>
-                    
+                    </RouterLink>                    
                     <RouterLink to="/teste-realizados" active-class="active" exact>
                         Historico
                     </RouterLink>

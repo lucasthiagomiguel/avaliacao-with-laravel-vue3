@@ -1,1 +1,3 @@
-export const MenuState = ({ token }) => true
+export  const authenticated = (state) =>{
+    return state.authenticated
+}

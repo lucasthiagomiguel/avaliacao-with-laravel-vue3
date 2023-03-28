@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex dsh h-screen">
-        <div class="col-md-2 border-end" v-if="MenuState.auth.authenticated">
+        <div class="col-md-2 border-end" v-if="MenuState">
             <Menu/>
         </div>
-        <div class="col-md-10">
+        <div class="col-12" :class="{'col-md-10':MenuState}">
           <router-view></router-view>
         </div>
         
@@ -23,11 +23,13 @@ export default {
   },
   mounted() {
     
+    
   },
   computed:{
-    ...mapState({
-      MenuState: authenticated => authenticated
-    })
+    ...mapGetters({
+      MenuState: 'auth/authenticated'
+    }),
+
   }
  
 }

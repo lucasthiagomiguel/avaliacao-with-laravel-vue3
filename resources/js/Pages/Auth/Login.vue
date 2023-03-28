@@ -1,89 +1,58 @@
-<script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
-
-defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
-
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false,
-});
-
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
-</script>
-
 <template>
-    <GuestLayout>
-        <Head title="Log in" />
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+    <div class="container-fluid d-flex flex-column justify-content-center h-screen">
+        <div class="row d-flex justify-content-center">
+            <div class=" col-11">
+                <div class="card w-[500px]">
+                    <form action="" @submit.prevent="login($event)" class=" d-flex flex-column justify-content-center align-items-center pt-4 pb-4">
+                        <div class="pb-3">
+                            <input type="text" name="" class="boorder-style-color border-2" v-model="usersData.email" placeholder="E-MAIL">
+                        </div>
+                        <div class="pb-3">
+                            <input type="password" name="" class="boorder-style-color border-2" v-model="usersData.password" placeholder="PASSWORD">
+                        </div>
+                        <div class="w-full text-center">
+                            <button type="submit" class="pt-2 pb-2 p-3 border-2 w-[203.5px] boorder-style-color" >enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Forgot your password?
-                </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
+    </div>
 </template>
+<script>
+import { mapActions } from 'vuex';
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        },
+        data(){
+            return{
+                usersData:{
+                    email:'teste@teste.comm',
+                    password:'password'
+                },
+            }
+        },
+       
+        props:[],
+        methods:{
+            ...mapActions('auth',['ActionSetLogin']),
+            login(e){ 
+                this.ActionSetLogin(this.usersData)
+            }
+        }
+    }
+
+</script>
+<style scoped>
+.container-fluid{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+.boorder-style-color{
+    border-color: #e5e7eb;
+}
+.row{
+    margin: auto;
+}
+</style>
