@@ -1,7 +1,7 @@
 <template>
   <div class=" ">
     <div class="btns d-flex  align-items-center justify-content-end p-3 ">
-      <RouterLink to="/usuarios" active-class="active" class="btn btn-primary" exact>
+      <RouterLink to="/" active-class="active" class="btn btn-primary" exact>
         Cadastrar
       </RouterLink>
     </div>

@@ -7,13 +7,16 @@
             </button>
             <div class="" id="menuLateral">
                 <ul class="navbar-nav d-flex  flex-column align-items-start">
-                    <RouterLink to="/teste-realizados" active-class="active" exact>
+                    <RouterLink to="/avaliacao" active-class="active" exact>
                         Avaliacao Desempenho
                     </RouterLink>
                     <RouterLink to="/dashboard"  active-class="active" exact>
                         Dashboard
-                    </RouterLink>                    
-                    <RouterLink to="/teste-realizados" active-class="active" exact>
+                    </RouterLink>   
+                    <RouterLink to="/colaborador"  active-class="active" exact>
+                        Colaboradores
+                    </RouterLink>                   
+                    <RouterLink to="/" active-class="active" exact>
                         Historico
                     </RouterLink>
                 </ul>

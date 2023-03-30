@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('performanceTest', function (Blueprint $table) {
+        Schema::create('avaliacao_desempenhos', function (Blueprint $table) {
             $table->id();
             $table->string('questions');
             $table->boolean('status');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('performanceTest');
+        Schema::dropIfExists('avaliacao_desempenhos');
     }
 };

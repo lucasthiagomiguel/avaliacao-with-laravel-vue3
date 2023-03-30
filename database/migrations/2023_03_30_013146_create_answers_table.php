@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('answers');
             $table->boolean('status');
             $table->unsignedBigInteger('question_id');
+            $table->boolean('value_answers');
             $table->timestamps();
-
-            $table->foreign('question_id')->references('id')->on('performanceTest');
+            $table->foreign('question_id')->references('id')->on('avaliacao_desempenhos');
         });
     }
 
