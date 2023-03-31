@@ -19,22 +19,41 @@ class Users extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'name',
-        'email',
+        'admisao',
+        'empresa',
+        'email_pessoal',
+        'email_corporativo',
+        'escolaridade',
+        'certificacoes',
+        'celular',
+        'cargo',
+        'funcao',
+        'tipo_contratacao',
+        'salario',
+        'equipe',
+        'ferias',
+        'alteracao_cargo_salario_ferias',
+        'observacao',
+        'demissao',
+        'motivo',
         'password',
+        'status',
+        'perfil'
+        
     ];
 
     public function rules(){
         return 
         [ 
-        'email' => 'required|unique:users,email,'.$this->id.''
+        'email_pessoal' => 'required|unique:users,email_pessoal,'.$this->id.''
         ];
     }
 
     public function feedback(){
         return 
         [
-            'required' => 'input email required',
-            'email.unique' => ' email exist'
+            'required' => 'input email_pessoal required',
+            'email_pessoal.unique' => ' email_pessoal exist'
         ];
     }
 

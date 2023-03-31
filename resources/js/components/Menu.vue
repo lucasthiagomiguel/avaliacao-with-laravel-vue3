@@ -13,10 +13,10 @@
                     <RouterLink to="/dashboard"  active-class="active" exact>
                         Dashboard
                     </RouterLink>   
-                    <RouterLink to="/colaborador"  active-class="active" exact>
+                    <RouterLink to="/colaboradores"  active-class="active" exact>
                         Colaboradores
                     </RouterLink>                   
-                    <RouterLink to="/" active-class="active" exact>
+                    <RouterLink to="/historico" active-class="active" exact>
                         Historico
                     </RouterLink>
                 </ul>

@@ -20,7 +20,10 @@ class AvaliacaoDesempenhoController extends Controller
      */
     public function index()
     {
-        $performance = $this->performance->all();
+
+        $performance = $this->performance->join('answers', 'avaliacao_desempenhos.id', '=', 'answers.question_id')
+        ->select('answers.*','avaliacao_desempenhos.questions')
+        ->get()->sortByDesc('avaliacao_desempenhos.questions');
         return  response()->json($performance,200); 
     }
 
@@ -32,7 +35,8 @@ class AvaliacaoDesempenhoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $performance = $this->performance->create($request->all());
+        return response()->json($performance,201); 
     }
 
   /**

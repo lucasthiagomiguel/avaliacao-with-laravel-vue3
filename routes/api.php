@@ -2,6 +2,7 @@
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AvaliacaoDesempenhoController;
+use App\Http\Controllers\AnswersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,15 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('v1')->middleware('jwt.auth')->group(function(){
-    Route::apiResource('users',UsersController::class);
+    
     Route::apiResource('task',TaskController::class);
-    Route::apiResource('performance',AvaliacaoDesempenhoController::class);
     Route::post('me','App\Http\Controllers\AuthController@me');
     Route::post('refresh','App\Http\Controllers\AuthController@refresh');
     Route::post('logout','App\Http\Controllers\AuthController@logout');
 });
-
 Route::prefix('v1')->group(function(){
+    Route::apiResource('answers',AnswersController::class);
+    Route::apiResource('performance',AvaliacaoDesempenhoController::class);
+    Route::apiResource('users',UsersController::class);
     Route::post('login','App\Http\Controllers\AuthController@login');
     
 });

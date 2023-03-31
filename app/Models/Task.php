@@ -28,7 +28,7 @@ class Task extends Model
             'required' => 'input status required',
         ];
     }
-    public function task(){
+    public function tasks(){
         return $this->belongsTo('App\Models\Users');
     }
 }

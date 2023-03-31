@@ -31,7 +31,8 @@ class AnswersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $answers = $this->answers->create($request->all());
+        return response()->json($answers,201); 
     }
 
     /**

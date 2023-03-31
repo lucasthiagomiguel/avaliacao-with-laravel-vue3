@@ -31,8 +31,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-         
-        $request->validate($this->users->rules(),$this->users->feedback());
+        
+        // $request->validate($this->users->rules(),$this->users->feedback());
        $user = $this->users->create($request->all());
         return response()->json($user,201); 
     }
