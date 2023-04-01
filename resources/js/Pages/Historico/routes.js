@@ -1,8 +1,9 @@
+import Historico from '@/Pages/Historico/Historico.vue'
 export default [
     {
       path: '/historico',
       name: 'historico',
-      component: () => import(/* webpackChunkName: "home" */ './Historico'),
+      component: Historico,
       meta: {
         requiresAuth:true,
         title: `Historico`

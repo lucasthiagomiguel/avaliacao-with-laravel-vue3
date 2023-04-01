@@ -4,8 +4,8 @@ import * as storage from './storage';
 import router from '@/router';
 
 export const ActionSetLogin = ({dispatch},payload) =>{
+    console.log(payload);
    return  axios.post('/login',payload).then(({data})=>{
-   
     dispatch('ActionAuthenticated',true);
     dispatch('ActionSetToken',data.token);
    storage.setLocalToken(data.token);

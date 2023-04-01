@@ -1,8 +1,10 @@
+import Home from "@/Pages/Dashboard/Dashboard.vue";
+
 export default [
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import(/* webpackChunkName: "home" */ './Dashboard'),
+      component: Home,
       meta: {
         requiresAuth:true,
         title: `Dashboard`

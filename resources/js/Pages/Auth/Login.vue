@@ -5,7 +5,7 @@
                 <div class="card w-[500px]">
                     <form action="" @submit.prevent="login($event)" class=" d-flex flex-column justify-content-center align-items-center pt-4 pb-4">
                         <div class="pb-3">
-                            <input type="text" name="" class="boorder-style-color border-2" v-model="usersData.email" placeholder="E-MAIL">
+                            <input type="text" name="" class="boorder-style-color border-2" v-model="usersData.email_pessoal" placeholder="E-MAIL">
                         </div>
                         <div class="pb-3">
                             <input type="password" name="" class="boorder-style-color border-2" v-model="usersData.password" placeholder="PASSWORD">
@@ -28,7 +28,7 @@ import { mapActions } from 'vuex';
         data(){
             return{
                 usersData:{
-                    email:'teste@teste.comm',
+                    email_pessoal:'teste@teste.comm',
                     password:'password'
                 },
             }

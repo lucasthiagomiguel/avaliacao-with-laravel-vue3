@@ -1,8 +1,9 @@
+import Colaborador from '@/Pages/Colaboradores/Colaborador.vue'
 export default [
     {
       path: '/colaboradores',
       name: 'colaboradores',
-      component: () => import(/* webpackChunkName: "home" */ './Colaboradores'),
+      component: Colaborador,
       meta: {
         requiresAuth:true,
         title: `Colaboradores`
