@@ -1,4 +1,4 @@
-import Colaborador from '@/Pages/Colaboradores/Colaborador.vue'
+import Colaborador from '@/Pages/Colaboradores/Colaboradores.vue'
 export default [
     {
       path: '/colaboradores',

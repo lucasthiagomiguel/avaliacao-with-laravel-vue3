@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateAvaliacaoDesempenhoRequest;
-use App\Models\AvaliacaoDesempenho;
 use Illuminate\Http\Request;
+use App\Models\AvaliacaoFeita;
 
-class AvaliacaoDesempenhoController extends Controller
+class AvaliacaoFeitaController extends Controller
 {
-    public function __construct(AvaliacaoDesempenho $performance)
+    public function __construct(AvaliacaoFeita $avaliacaoFeita)
     {
-        $this->performance = $performance;
+        $this->avaliacaoFeita = $avaliacaoFeita;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,16 +18,11 @@ class AvaliacaoDesempenhoController extends Controller
      */
     public function index()
     {
-
-        $performance = $this->performance->all();
-        // ->select('answers.*','avaliacao_desempenhos.*')
-        // ->join('answers', 'avaliacao_desempenhos.id', '=', 'answers.question_id')
-        // ->groupBy('avaliacao_desempenhos.questions')
-        // ->get();
-        return  response()->json($performance,200); 
+        $avaliacaoFeita = $this->avaliacaoFeita->all();
+        return  response()->json($avaliacaoFeita,200); 
     }
 
-    /**
+   /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,11 +30,11 @@ class AvaliacaoDesempenhoController extends Controller
      */
     public function store(Request $request)
     {
-        $performance = $this->performance->create($request->all());
-        return response()->json($performance,201); 
+        $avaliacaoFeita = $this->avaliacaoFeita->create($request->all());
+        return response()->json($avaliacaoFeita,201); 
     }
 
-  /**
+    /**
      * Display the specified resource.
      *
      * @param  Integer
@@ -52,7 +45,7 @@ class AvaliacaoDesempenhoController extends Controller
         //
     }
 
-    /**
+     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -64,7 +57,7 @@ class AvaliacaoDesempenhoController extends Controller
         //
     }
 
-    /**
+       /**
      * Remove the specified resource from storage.
      *
      * @param  Integer

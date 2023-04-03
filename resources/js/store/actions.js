@@ -30,10 +30,24 @@ export const ActionSetToken = ({commit},payload) =>{
     commit(types.SET_TOKEN,payload)
 }
 
+export const ActionSetQuestion = ({commit},payload) =>{
+    commit(types.SET_QUESTIONAVALIATION,payload)
+}
 export const ActionSingOut = ({dispatch}) => {
     storage.setHeaderToken('');
     storage.deleteLocalToken();
     dispatch('ActionSetUser',{});
     dispatch('ActionSetToken','');
 
+}
+
+//avaliacao de desempenho 
+export const ActionQuestion = ({dispatch}) =>{
+    
+   return  axios.get('/performance').then(({data})=>{
+    console.log(data);
+    dispatch('ActionSetQuestion',data)
+    }).catch((error)=>{
+        console.log(error);
+    })
 }
