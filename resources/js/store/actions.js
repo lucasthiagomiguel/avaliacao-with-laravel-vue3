@@ -1,13 +1,14 @@
 import * as types from './mutation-types';
 import axios  from '@/axios';
+import { setBearerToken } from "@/axios";
 import * as storage from './storage';
 import router from '@/router';
 
 export const ActionSetLogin = ({dispatch},payload) =>{
-    console.log(payload);
    return  axios.post('/login',payload).then(({data})=>{
     dispatch('ActionAuthenticated',true);
     dispatch('ActionSetToken',data.token);
+    dispatch('UserLoged',data.token);
    storage.setLocalToken(data.token);
    router.push('/dashboard')
     }).catch((error)=>{
@@ -15,6 +16,17 @@ export const ActionSetLogin = ({dispatch},payload) =>{
         console.log(error);
     })
 }
+
+export const UserLoged = ({dispatch},payload) =>{
+    axios.defaults.headers.common['Authorization'] = `Bearer ${payload}`;
+    console.log( payload )
+    return  axios.post('/me').then(({data})=>{
+        dispatch('ActionSetUser',data);
+        }).catch((error)=>{
+            console.log(error);
+        })
+}
+    
 
 
 export const ActionSetUser = ({commit},payload) =>{
@@ -33,6 +45,11 @@ export const ActionSetToken = ({commit},payload) =>{
 export const ActionSetQuestion = ({commit},payload) =>{
     commit(types.SET_QUESTIONAVALIATION,payload)
 }
+
+export const ActionSetAnswers = ({commit},payload) =>{
+    commit(types.SET_ANSWERS,payload)
+    
+}
 export const ActionSingOut = ({dispatch}) => {
     storage.setHeaderToken('');
     storage.deleteLocalToken();
@@ -45,9 +62,17 @@ export const ActionSingOut = ({dispatch}) => {
 export const ActionQuestion = ({dispatch}) =>{
     
    return  axios.get('/performance').then(({data})=>{
-    console.log(data);
     dispatch('ActionSetQuestion',data)
     }).catch((error)=>{
         console.log(error);
     })
 }
+
+export const ActionAnswers = ({dispatch}) =>{
+    
+    return  axios.get('/answers').then(({data})=>{
+     dispatch('ActionSetAnswers',data);
+     }).catch((error)=>{
+         console.log(error);
+     })
+ }

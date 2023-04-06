@@ -7,14 +7,17 @@
             </button>
             <div class="" id="menuLateral">
                 <ul class="navbar-nav d-flex  flex-column align-items-start">
-                    <RouterLink to="/avaliacao" active-class="active" exact>
-                        Avaliacao Desempenho
+                    <li class="nav-item">
+                        <RouterLink to="/avaliacao" class="nav-link" active-class="active" exact>
+                        Avaliação Desempenho
                     </RouterLink>
+                    </li>
+                    
                     <RouterLink to="/dashboard"  active-class="active" exact>
                         Dashboard
                     </RouterLink>   
                     <RouterLink to="/colaboradores"  active-class="active" exact>
-                        Colaboradores
+                        Relatorios
                     </RouterLink>                   
                     <RouterLink to="/historico" active-class="active" exact>
                         Historico
@@ -37,7 +40,7 @@ export default {
         a{
             text-decoration: none;
             font-weight: 800;
-            font-size: 24px;
+            font-size: 15px;
             color: #acb0b6;
             padding: 9px 0;
         }

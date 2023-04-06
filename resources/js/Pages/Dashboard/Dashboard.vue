@@ -4,56 +4,59 @@
         <p>Total Colaboradores: <span>10</span></p>
         <p>Total Avaliações Realizada: <span>10</span></p>
     </div>
+    <div class="">
+      <p>Para filtrar, click no nine box desejado</p>
+    </div>
       <div class="nine-box w-[420px] h-[300px] d-flex flex-wrap m-auto mt-5 p-3  justify-content-around">
-          <div class="border w-[115px] p-2 mb-2 enigma">
+          <div class="border w-[115px] p-2 mb-2 text-center enigma text-center">
               <p>Enigma</p>
-              <div class="quantity-colaborador borde-0">
+              <div class="quantity-colaborador borde-0 ">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 potencial">
+          <div class="border w-[115px] p-2 mb-2 text-center potencial">
               <p>Potencial</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 talento" >
+          <div class="border w-[115px] p-2 mb-2 text-center talento" >
               <p>Talento</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 questionavel">
+          <div class="border w-[115px] p-2 mb-2 text-center questionavel">
               <p>Questionavel</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 mantenedor">
+          <div class="border w-[115px] p-2 mb-2 text-center mantenedor">
               <p>Mantenedor</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 desempenho">
+          <div class="border w-[115px] p-2 mb-2 text-center desempenho">
               <p>Desempenho</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 risco">
+          <div class="border w-[115px] p-2 mb-2 text-center risco">
               <p>Risco</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 eficaz">
+          <div class="border w-[115px] p-2 mb-2 text-center eficaz">
               <p>Eficaz</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
               </div>
           </div>
-          <div class="border w-[115px] p-2 mb-2 comprometimento">
+          <div class="border w-[115px] p-2 mb-2 text-center comprometimento">
               <p>Comprometido</p>
               <div class="quantity-colaborador borde-0">
                 <span>1</span>
@@ -68,37 +71,44 @@
 </template>
 
 <script>
-
+import { mapActions, mapGetters } from 'vuex';
+import axiosInstance from '@/axios';
 
 export default {
+  mounted(){
+  },
     components:{
         
+    },
+    methods:{
+      ...mapActions({
+        UserLoged:'auth/UserLoged'
+      }),
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .nine-box{
-    .border{
-        border-left: 2px solid !important;
-    }
-    .enigma,.comprometimento{
-        border-left-color: #2677ea !important;
+    .enigma,.comprometimento,.mantenedor{
+        background: #00BFFF;
+        color: #fff;
     }
     .potencial,.desempenho{
-        border-left-color: #b9faf5 !important;
+        background: #32CD32;
+        color: #fff;
     }
     .talento{
-        border-left-color: #11b69a !important;
+        background: #00764b;
+        color: #fff;
     }
     .questionavel,.eficaz{
-        border-left-color: #fccd1d !important;
-    }
-    .mantenedor{
-        border-left-color: #0e59fe !important;
+        background: #FFA500;
+        color: #fff;
     }
     .risco{
-        border-left-color: red !important;
+        background: red;
+        color: #fff;
     }
 }
 </style>

@@ -12,5 +12,8 @@ export default{
     },
     [types.SET_QUESTIONAVALIATION](state,payload){
         state.questionAvaliation = payload 
+    },
+    [types.SET_ANSWERS](state,payload){
+        state.answers = payload 
     }
 }

@@ -5,3 +5,7 @@ export  const authenticated = (state) =>{
 export  const questionAvaliation = (state) =>{
     return state.questionAvaliation
 }
+
+export  const questionAnswers = (state) =>{
+    return state.answers
+}
