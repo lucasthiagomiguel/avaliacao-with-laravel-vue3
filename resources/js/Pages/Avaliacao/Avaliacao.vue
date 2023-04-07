@@ -95,6 +95,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import axiosInstance from '@/axios';
 import Form from '@/components/Form.vue';
 export default {
   data(){
@@ -104,9 +105,9 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$store)
     this.avaliacao()
     this.answersTeste()
+    this.UsersAvaliation()
   },
   computed:{
     ...mapGetters({
@@ -139,6 +140,16 @@ export default {
         }else{
           this.pdiCreate = true
         }
+      },
+       UsersAvaliation(){
+        console.log(this.$store.state.auth.token)
+        const token = this.$store.state.auth.token;
+        axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        return   axiosInstance.get('avaliacao-done/1').then(({data})=>{
+          console.log(data);
+          }).catch((error)=>{
+              console.log(error);
+          })
       }
   },
   components:{

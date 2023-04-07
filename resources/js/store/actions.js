@@ -1,6 +1,5 @@
 import * as types from './mutation-types';
 import axios  from '@/axios';
-import { setBearerToken } from "@/axios";
 import * as storage from './storage';
 import router from '@/router';
 
@@ -8,9 +7,10 @@ export const ActionSetLogin = ({dispatch},payload) =>{
    return  axios.post('/login',payload).then(({data})=>{
     dispatch('ActionAuthenticated',true);
     dispatch('ActionSetToken',data.token);
-    dispatch('UserLoged',data.token);
-   storage.setLocalToken(data.token);
-   router.push('/dashboard')
+    storage.setHeaderToken(data.token);
+    storage.setLocalToken(data.token);
+    dispatch('UserLoged');
+    router.push('/dashboard')
     }).catch((error)=>{
         dispatch('ActionAuthenticated',false)
         console.log(error);
@@ -18,8 +18,6 @@ export const ActionSetLogin = ({dispatch},payload) =>{
 }
 
 export const UserLoged = ({dispatch},payload) =>{
-    axios.defaults.headers.common['Authorization'] = `Bearer ${payload}`;
-    console.log( payload )
     return  axios.post('/me').then(({data})=>{
         dispatch('ActionSetUser',data);
         }).catch((error)=>{

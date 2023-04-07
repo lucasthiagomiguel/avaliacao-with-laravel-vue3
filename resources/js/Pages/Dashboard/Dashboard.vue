@@ -5,7 +5,11 @@
         <p>Total Avaliações Realizada: <span>10</span></p>
     </div>
     <div class="">
-      <p>Para filtrar, click no nine box desejado</p>
+      <p>Pa</p>
+    </div>
+    <div class="text-center" @click="UserLoged()">
+      por titulo
+
     </div>
       <div class="nine-box w-[420px] h-[300px] d-flex flex-wrap m-auto mt-5 p-3  justify-content-around">
           <div class="border w-[115px] p-2 mb-2 text-center enigma text-center">
@@ -71,19 +75,17 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 import axiosInstance from '@/axios';
 
 export default {
   mounted(){
+   console.log(axiosInstance)
   },
     components:{
         
     },
     methods:{
-      ...mapActions({
-        UserLoged:'auth/UserLoged'
-      }),
+     
     }
 }
 </script>

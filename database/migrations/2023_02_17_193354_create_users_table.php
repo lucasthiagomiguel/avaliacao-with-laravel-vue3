@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('demissao');
             $table->string('motivo');
             $table->string('password');
+            $table->integer('gestor');
             $table->boolean('status');
             $table->unsignedBigInteger('perfil');
             $table->timestamps();

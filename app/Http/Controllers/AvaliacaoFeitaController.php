@@ -22,6 +22,7 @@ class AvaliacaoFeitaController extends Controller
         return  response()->json($avaliacaoFeita,200); 
     }
 
+    
    /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +43,9 @@ class AvaliacaoFeitaController extends Controller
      */
     public function show($id)
     {
-        //
+        $avaliacaoFeita = $this->avaliacaoFeita->leftJoin('users', 'avaliacao_feitas.id_users_gestor', '=', 'users.perfil')
+        ->get();;
+        return  response()->json($avaliacaoFeita,200); 
     }
 
      /**

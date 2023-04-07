@@ -4,9 +4,7 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000/api/v1'
 });
 
- const setBearerToken = (token) => token;
  axiosInstance.defaults.headers.common['Content-Type'] = 'application/json';
-axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${setBearerToken}`;
+
 
 export default axiosInstance;
-export {setBearerToken};

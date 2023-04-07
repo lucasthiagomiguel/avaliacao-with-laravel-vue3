@@ -14,8 +14,12 @@ class AvaliacaoFeita extends Model
      * @var array
      */
     protected $fillable = [
-        'id_users',
-        'id_answers',
+        'answers',
+        'status',
+        'done',
         'question_id',
+        'id_users_gestor',
+        'value_answers_performace',
+        'value_answers_desempenho'
     ];
 }

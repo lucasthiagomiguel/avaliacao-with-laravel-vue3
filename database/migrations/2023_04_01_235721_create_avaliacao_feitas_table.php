@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('answers');
             $table->boolean('status');
+            $table->integer('done');
             $table->unsignedBigInteger('question_id');
-            $table->unsignedBigInteger('id_users');
-            $table->boolean('value_answers');
+            $table->unsignedBigInteger('id_users_gestor');
+            $table->float('value_answers_performace');
+            $table->float('value_answers_desempenho');
             $table->timestamps();
         });
     }
