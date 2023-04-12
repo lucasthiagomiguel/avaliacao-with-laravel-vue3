@@ -53,6 +53,20 @@ class UsersController extends Controller
         return response()->json($users,200); 
     }
     /**
+     * Display the specified resource.
+     *
+     * @param  Integer
+     * @return \Illuminate\Http\Response
+     */
+    public function avaliacao($id)
+    {
+        $users = $this->users
+        ->join('avaliacao_feitas', 'users.id', '=', 'avaliacao_feitas.id_users_gestor')
+        ->select('users.*', 'avaliacao_feitas.*')
+        ->where('users.id_gestor','=',1)->get();
+        return response()->json($users,200); 
+    }
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

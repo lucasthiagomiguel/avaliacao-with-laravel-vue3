@@ -3,7 +3,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AvaliacaoDesempenhoController;
 use App\Http\Controllers\AnswersController;
-use App\Http\Controllers\AvaliacaoFeitaController;
+use App\Http\Controllers\AvaliacaoDoneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->middleware('jwt.auth')->group(function(){
     
     Route::apiResource('task',TaskController::class);
-    Route::apiResource('avaliacao-done',AvaliacaoFeitaController::class);
     Route::post('me','App\Http\Controllers\AuthController@me');
     Route::post('refresh','App\Http\Controllers\AuthController@refresh');
     Route::post('logout','App\Http\Controllers\AuthController@logout');
+    Route::get('my-team/{id}','App\Http\Controllers\UsersController@avaliacao');
+    
 });
 Route::prefix('v1')->group(function(){
+    Route::apiResource('avaliacaoDone',AvaliacaoDoneController::class);
     Route::apiResource('answers',AnswersController::class);
     Route::apiResource('performance',AvaliacaoDesempenhoController::class);
     Route::apiResource('users',UsersController::class);

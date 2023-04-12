@@ -21,11 +21,11 @@ class AvaliacaoDesempenhoController extends Controller
     public function index()
     {
 
-        $performance = $this->performance->all();
-        // ->select('answers.*','avaliacao_desempenhos.*')
-        // ->join('answers', 'avaliacao_desempenhos.id', '=', 'answers.question_id')
-        // ->groupBy('avaliacao_desempenhos.questions')
-        // ->get();
+        $performance = $this->performance->all()
+        ->select('answers.*','avaliacao_desempenhos.*')
+        ->join('answers', 'avaliacao_desempenhos.id', '=', 'answers.question_id')
+        ->groupBy('avaliacao_desempenhos.questions')
+        ->get();
         return  response()->json($performance,200); 
     }
 
